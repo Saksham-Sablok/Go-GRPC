@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "./api";      // this has to be same  idk why but otherwise giving the error.
+message  PingMessage{
+    string greeting =1;
+}
+
+service Ping{
+    rpc Hello_world(PingMessage) returns (PingMessage) {}
+}
+
