@@ -10,12 +10,12 @@ import (
 )
 
 func main() {
-	fmt.Println("hello Server.main.go")
+	fmt.Println("yo Server.main.go")
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", 9000))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
-	s := api.server{}
+	s := api.Server{}
 	grpcServer := grpc.NewServer()
 
 	api.RegisterPingServer(grpcServer, &s)
@@ -23,5 +23,6 @@ func main() {
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)
 	}
+	fmt.Println("BYE Server.main.go")
 
 }
